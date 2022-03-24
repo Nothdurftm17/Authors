@@ -18,7 +18,7 @@ module.exports.findOne = (req, res) => {
 }
 
 module.exports.updateOne = (req, res) => {
-    Author.updateOne({_id: req.params._id}, req.body)
+    Author.updateOne({_id: req.params._id}, req.body, {runValidators: true})
     .then(results => res.json(results))
     .catch(err => res.status(400).json({message: "Did not work", err}))
 }
